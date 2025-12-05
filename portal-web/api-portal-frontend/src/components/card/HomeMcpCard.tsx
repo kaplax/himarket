@@ -15,15 +15,30 @@ function HomeMCPCard() {
       />
       <div className="h-full relative z-[3] flex flex-col justify-between p-6">
         <div className="flex flex-col gap-4">
-          <div className="font-medium">MCP 市场</div>
+          <div className="font-medium transition-transform duration-300 group-hover:translate-x-1">MCP 市场</div>
           <div className="flex pl-3">
             {[
               "⏰", "🌦️", "🌏", "💱",
-            ].map((img) => <Circle className="w-12 h-12 text-[20px]" key={img} style={{ marginLeft: -12 }}>{img}</Circle>)}
-            <img style={{ marginLeft: -12 }} src={More} />
+            ].map((emoji, index) => (
+              <Circle
+                className="w-12 h-12 text-[20px] transition-all duration-300 group-hover:scale-110 group-hover:-translate-y-1"
+                key={emoji}
+                style={{
+                  marginLeft: -12,
+                  transitionDelay: `${index * 50}ms`
+                }}
+              >
+                {emoji}
+              </Circle>
+            ))}
+            <img
+              style={{ marginLeft: -12 }}
+              src={More}
+              className="transition-all duration-300 group-hover:scale-110 group-hover:-translate-y-1"
+            />
           </div>
         </div>
-        <div className="absolute w-[120%] top-[26%] left-[-14%] scale-[.6] -rotate-12">
+        <div className="absolute w-[120%] top-[26%] left-[-14%] scale-[.6] -rotate-12 transition-all duration-500 group-hover:scale-[.65] group-hover:-rotate-6">
           <ProductCard
             isSubscribed={true}
             isAdded={true}
@@ -34,7 +49,7 @@ function HomeMCPCard() {
             }}
           />
         </div>
-        <div className="absolute w-[120%] top-[46%] left-[6%] scale-[.6] rotate-12">
+        <div className="absolute w-[120%] top-[46%] left-[6%] scale-[.6] rotate-12 transition-all duration-500 group-hover:scale-[.65] group-hover:rotate-6">
           <ProductCard
             isSubscribed={true}
             isAdded={false}
@@ -45,7 +60,7 @@ function HomeMCPCard() {
             }}
           />
         </div>
-        <div>
+        <div className="transition-transform duration-300 group-hover:translate-x-2">
           <Circle className="w-8 h-8">
             <ArrowRight className="fill-mainTitle" />
           </Circle>

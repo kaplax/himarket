@@ -18,26 +18,36 @@ function HomeAgentCard() {
       />
       <div className="h-full relative z-[3] flex flex-col justify-between p-6">
         <div className="h-full relative flex flex-col gap-4">
-          <div className="font-medium">智能体市场</div>
+          <div className="font-medium transition-transform duration-300 group-hover:translate-x-1">智能体市场</div>
           <div className="flex pl-3">
             {[
               Person1, Person2, Person3, Person4, More,
-            ].map((img) => <img style={{ marginLeft: -12 }} src={img} />)}
+            ].map((img, index) => (
+              <img
+                key={index}
+                style={{
+                  marginLeft: -12,
+                  transitionDelay: `${index * 50}ms`
+                }}
+                src={img}
+                className="transition-all duration-300 group-hover:scale-110 group-hover:-translate-y-1"
+              />
+            ))}
           </div>
           <div className="flex flex-col gap-8 mt-[20%]">
             <div className="flex justify-end">
-              <TextTooltip className="flex-1 max-w-[90%]" style={{ boxShadow: "0px 4px 8px 0px rgba(24, 101, 255, 0.16)" }} placement="r" classNames={{ root: "bg-colorPrimaryBorderHover" }}>
+              <TextTooltip className="flex-1 max-w-[90%] transition-all duration-300 group-hover:translate-x-1" style={{ boxShadow: "0px 4px 8px 0px rgba(24, 101, 255, 0.16)" }} placement="r" classNames={{ root: "bg-colorPrimaryBorderHover" }}>
                 <span className="text-white text-xs">帮我生成一个三日杭州旅行攻略</span>
               </TextTooltip>
             </div>
             <div className="flex justify-start">
-              <TextTooltip className="flex-1 max-w-[90%]" style={{ boxShadow: "0px 8px 24px 0px rgba(71, 71, 235, 0.08)" }} placement="l" classNames={{ root: "bg-[#F9FAFB]" }}>
+              <TextTooltip className="flex-1 max-w-[90%] transition-all duration-300 group-hover:-translate-x-1" style={{ boxShadow: "0px 8px 24px 0px rgba(71, 71, 235, 0.08)" }} placement="l" classNames={{ root: "bg-[#F9FAFB]" }}>
                 <div className="flex flex-col gap-2 w-full p-2">
                   <span className="text-colorPrimaryBorderHover text-xs">
                     正在为您生成旅行计划
                   </span>
-                  <div className="w-full h-2 rounded" style={{ background: "linear-gradient(90deg, rgba(224, 231, 255, 0.7) 0%, rgba(224, 231, 255, 0.2) 100%)" }}></div>
-                  <div className="w-full h-2 rounded" style={{ background: "linear-gradient(90deg, rgba(224, 231, 255, 0.7) 0%, rgba(224, 231, 255, 0.2) 100%)" }}></div>
+                  <div className="w-full h-2 rounded transition-all duration-300 group-hover:w-3/4" style={{ background: "linear-gradient(90deg, rgba(224, 231, 255, 0.7) 0%, rgba(224, 231, 255, 0.2) 100%)" }}></div>
+                  <div className="w-full h-2 rounded transition-all duration-300 group-hover:w-2/3 delay-75" style={{ background: "linear-gradient(90deg, rgba(224, 231, 255, 0.7) 0%, rgba(224, 231, 255, 0.2) 100%)" }}></div>
                 </div>
               </TextTooltip>
             </div>
@@ -52,7 +62,7 @@ function HomeAgentCard() {
             </div>
           </div>
         </div>
-        <div>
+        <div className="transition-transform duration-300 group-hover:translate-x-2">
           <Circle className="w-8 h-8">
             <ArrowRight className="fill-mainTitle" />
           </Circle>

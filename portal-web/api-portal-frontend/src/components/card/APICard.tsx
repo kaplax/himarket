@@ -57,7 +57,7 @@ function HomeAPICard() {
       </div>
       <div className="h-full relative z-[3] flex flex-col justify-between p-6">
         <div className="h-full relative flex flex-col gap-4">
-          <div className="font-medium">API 市场</div>
+          <div className="font-medium transition-transform duration-300 group-hover:translate-x-1">API 市场</div>
           <div className="flex pl-3">
             {
               [
@@ -67,22 +67,30 @@ function HomeAPICard() {
                 <AudioLines />,
               ].map((icon, i) => (
                 <Circle
-                  className="w-12 h-12"
-                  style={{ marginLeft: -12 }} key={i}>
+                  className="w-12 h-12 transition-all duration-300 group-hover:scale-110 group-hover:-translate-y-1"
+                  style={{
+                    marginLeft: -12,
+                    transitionDelay: `${i * 50}ms`
+                  }}
+                  key={i}>
                   {icon}
                 </Circle>
               ))
             }
-            <img src={More} style={{ marginLeft: -12 }} />
+            <img
+              src={More}
+              style={{ marginLeft: -12 }}
+              className="transition-all duration-300 group-hover:scale-110 group-hover:-translate-y-1"
+            />
           </div>
           <div className="flex-1 w-full relative mt-[10%]">
-            <Terminal className="w-3/4">
-              <pre className="text-white/60 max-h-24  overflow-hidden text-[6px]">
+            <Terminal className="w-3/4 transition-all duration-500 group-hover:scale-105">
+              <pre className="text-white/60 max-h-24 overflow-hidden text-[6px]">
                 {JSON.stringify(code, null, 2)}
               </pre>
             </Terminal>
             <div
-              className="h-24 w-3/4 rounded-md absolute border left-[20%] border-white z-[-1] top-[20%]"
+              className="h-24 w-3/4 rounded-md absolute border left-[20%] border-white z-[-1] top-[20%] transition-all duration-500 group-hover:left-[24%] group-hover:top-[24%]"
               style={{
                 background: "linear-gradient(313deg, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0) 85%)",
                 backdropFilter: "blur(10px)"
@@ -91,7 +99,7 @@ function HomeAPICard() {
             </div>
           </div>
         </div>
-        <div>
+        <div className="transition-transform duration-300 group-hover:translate-x-2">
           <Circle className="w-8 h-8">
             <ArrowRight className="fill-mainTitle" />
           </Circle>
